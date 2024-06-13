@@ -1,14 +1,25 @@
 package com.meninas_gerentes.dao;
 
 public class ProfessorPojo {
-    
+    private int id;
     private String nome;
-    private String disciplina;
-    private String agenda;
+    private String endereco;
+    private int idade;
 
+    // Construtor vazio
     public ProfessorPojo() {
     }
 
+    // Getters e Setters para id
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // Getters e Setters para nome
     public String getNome() {
         return nome;
     }
@@ -17,20 +28,21 @@ public class ProfessorPojo {
         this.nome = nome;
     }
 
-    public String getDisciplina() {
-        return disciplina;
+    // Getters e Setters para endereco
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getAgenda() {
-        return agenda;
+    // Getters e Setters para idade
+    public int getIdade() {
+        return idade;
     }
 
-    public void setAgenda(String agenda) {
-        this.agenda = agenda;
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
-
 }

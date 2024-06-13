@@ -1,4 +1,4 @@
-package com.meninas_gerentes.professor;
+package com.meninas_gerentes.modelo;
 
 public class Professor {
     private String nome;

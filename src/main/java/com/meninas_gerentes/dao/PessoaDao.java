@@ -53,7 +53,7 @@ public class PessoaDao {
                 pessoa.setNome(rs.getString("nome"));
                 pessoa.setEndereco(rs.getString("endereco"));
                 pessoa.setIdade(rs.getInt("idade"));
-                pessoas.add(pessoa);
+                pessoa.add(pessoa);
             }
 
             ps.execute();
