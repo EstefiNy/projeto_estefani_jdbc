@@ -38,4 +38,9 @@ public class PessoaPojo {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public void add(PessoaPojo pessoa) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    }
 }
