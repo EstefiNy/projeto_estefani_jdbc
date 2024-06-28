@@ -40,7 +40,5 @@ public class PessoaPojo {
     }
 
     public void add(PessoaPojo pessoa) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 }

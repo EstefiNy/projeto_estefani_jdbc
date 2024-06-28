@@ -1,29 +1,50 @@
 package com.meninas_gerentes;
 
 
-import com.meninas_gerentes.dao.PessoaDao;
-import com.meninas_gerentes.dao.PessoaPojo;
-import com.meninas_gerentes.modelo.Pessoa;
+import com.meninas_gerentes.dao.ProfessorDao;
+import com.meninas_gerentes.dao.ProfessorPojo;
+import com.meninas_gerentes.modelo.Professor;
 
 public class App {
     public static void main( String[] args )
     {
      
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Estefani");
-        pessoa.setIdade(18);
-        pessoa.setEndereco("Rua Primeiro de Maio, 66");
+        Professor Professor = new Professor();
+        Professor.setNome("Estefani");
+        Professor.setIdade(18);
+        Professor.setEndereco("Rua Primeiro de Maio, 66");
         
-        PessoaPojo pessoaPojo = new PessoaPojo();
-        pessoaPojo.setNome(pessoa.getNome());
-        pessoaPojo.setIdade(pessoa.getIdade());
-        pessoaPojo.setEndereco(pessoa.getEndereco());
+        ProfessorPojo ProfessorPojo = new ProfessorPojo();
+        ProfessorPojo.setNome(Professor.getNome());
+        ProfessorPojo.setIdade(Professor.getIdade());
+        ProfessorPojo.setEndereco(Professor.getEndereco());
 
 
-        PessoaDao pessoaDao = new PessoaDao();
-        pessoaDao.cadastrarPessoa(pessoaPojo);
+        
+        //Cadastra
+        ProfessorDao ProfessorDao = new ProfessorDao();
+        ProfessorDao.cadastrarProfessor(ProfessorPojo);
+        
 
-        System.out.println("Alteração no  código");
+        /* 
+        //Alterar
+        ProfessorDao ProfessorDao = new ProfessorDao();
+        ProfessorDao.cadastrarProfessor(ProfessorPojo);
+        */
+
+        /* 
+        //Deletar
+        ProfessorDao ProfessorDao = new ProfessorDao();
+        ProfessorDao.cadastrarProfessor(ProfessorPojo);
+        */
+
+        /* 
+        //Consultar
+        ProfessorDao ProfessorDao = new ProfessorDao();
+        ProfessorDao.cadastrarProfessor(ProfessorPojo);
+        */
+
+        System.out.println("Operações CRUD concluídas.");
 
     }
 }
