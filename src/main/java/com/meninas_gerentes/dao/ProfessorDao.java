@@ -1,12 +1,15 @@
 package com.meninas_gerentes.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import com.meninas_gerentes.conexao.Conexao;
+import com.meninas_gerentes.modelo.Professor;
 
 
 public class ProfessorDao {
     
-    public void cadastrarProfessor(ProfessorDao professorPojo) {
+    public void cadastrarProfessor(ProfessorPojo professorPojo) {
 
         Conexao conexao = new Conexao();
 
@@ -18,7 +21,7 @@ public class ProfessorDao {
             ps = conexao.getConexao().prepareStatement(sql);
     
             ps.setString(1, professorPojo.getNome());
-            ps.setString(2, professorPojo.getDisciplina());
+            ps.setString(2, professorPojo.getDiscplina());
             ps.setString(3, professorPojo.getAgenda());
           
             ps.execute();
@@ -34,7 +37,10 @@ public class ProfessorDao {
     }
 
 
-    public void alterarProfessor(ProfessorDao professorPojo) {
+    /**
+     * @param professorPojo
+     */
+    public void alterarProfessor(ProfessorPojo professorPojo) {
 
         Conexao conexao = new Conexao();
 
@@ -43,12 +49,13 @@ public class ProfessorDao {
         PreparedStatement ps = null;
         
         try {
-            ps = conexao.getConexao().prepareStatement(sql);
-    
-            ps.setString(1, professor.getNome());
-            ps.setString(2, professor.getDisciplina());
-            ps.setString(3, professor.getAgenda());
-            ps.setInt(4, professor.getId());
+            ps = conexao.getConexao().prepareStatement(sql);    
+            
+            ps.setString(1, professorPojo.getNome());
+            ps.setString(2, professorPojo.getDiscplina());
+            ps.setString(3, professorPojo.getAgenda());
+           
+            ps.setInt(4, professorPojo.getId());
           
             ps.executeUpdate();
 
@@ -59,11 +66,13 @@ public class ProfessorDao {
             System.out.println("Ocorreu um erro ao alterar os dados do professor.");
         }
             finally{
-                conexao.fecharConexao();
+                conexao.getConexao();
             }
     }
 
-    public void deletarProfessor(ProfessorDao professorPojo) {
+    
+
+    public void deletarProfessor(ProfessorPojo professorPojo) {
 
         Conexao conexao = new Conexao();
 
@@ -74,7 +83,7 @@ public class ProfessorDao {
         try {
             ps = conexao.getConexao().prepareStatement(sql);
     
-            ps.setInt(1, id);
+            ps.setInt(1, professorPojo.getId());
           
             ps.executeUpdate();
 
@@ -85,7 +94,7 @@ public class ProfessorDao {
             System.out.println("Ocorreu um erro excluir o professor.");
         }
             finally{
-                conexao.fecharConexao();
+                conexao.getConexao();
             }
     }
 
@@ -105,13 +114,12 @@ public class ProfessorDao {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 String disciplina = rs.getString("disciplina");
                 String agenda = rs.getString("agenda");
                 
-                Professor professor = new Professor(id, nome, disciplina, agenda);
-                listaProfessores.add(professor);
+                Professor professor = new Professor(nome, disciplina, agenda);
+               
             }
             
         } catch (Exception e) {
@@ -119,7 +127,7 @@ public class ProfessorDao {
             System.out.println("Ocorreu um erro ao ler os dados do professor.");
         }
             finally{
-                conexao.fecharConexao();
+                conexao.getConexao();
             }
     }
 
@@ -157,11 +165,14 @@ public class ProfessorDao {
 
 
     private String getAgenda() {
+        return null;
     }
 
     private String getDisciplina() {
+        return null;
     }
 
     private String getNome() {
+        return null;
     } 
 }

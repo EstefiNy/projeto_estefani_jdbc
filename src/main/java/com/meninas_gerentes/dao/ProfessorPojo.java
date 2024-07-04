@@ -1,6 +1,7 @@
 package com.meninas_gerentes.dao;
 
 public class ProfessorPojo {
+    private int id;
     private String nome;
     private String discplina;
     private String agenda;
@@ -8,14 +9,14 @@ public class ProfessorPojo {
     @Deprecated
     public ProfessorPojo() {
     }
-    
 
-    public ProfessorPojo(String nome, String discplina, String agenda) {
-        this.nome = nome;
-        this.discplina = discplina;
-        this.agenda = agenda;
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -39,6 +40,12 @@ public class ProfessorPojo {
 
     public void setAgenda(String agenda) {
         this.agenda = agenda;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ProfessorPojo [id=" + id + ", nome=" + nome + ", discplina=" + discplina + ", agenda=" + agenda + "]";
     }
 
     
